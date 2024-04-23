@@ -1,0 +1,55 @@
+<h1>{{title}}</h1>
+{{#with post}}
+<h2 class="text-xl">{{title}}</h2>
+<div>
+    Author :<b data-id="{{_id}}">{{writer}}</b>
+</div>
+<div>
+    Views : {{hits}} | Date : {{dateString createdDt}}
+    <button onclick="modifyPost()">Modify</button>
+    <button onclick="deletePost()">Delete</button>
+</div>
+<div>
+    <pre>{{content}}</pre>
+</div>
+<section>
+    <div>
+        <h3>{{lengthOfList comments}} Comments exist</h3>
+    </div>
+    <form action="/write-comment" method="post">
+    <input type="hidden" name="id" value="{{_id}}">
+        <div>
+            <div>
+                <input type="text" name="name" placeholder="Name">
+                <input type="password" name="password" placeholder="Password">
+            </div>
+            <div>
+                <textarea name="comment" placeholder="Please input password." cols="55" rows="3"></textarea>
+                <br><br><button type="submit">Write Comment</button>
+            </div>
+        </div>
+    </form>
+</section>
+<section>
+    {{#each comments}}
+    <div>
+        <div>
+            Author : <b>{{name}}</b>
+        </div>
+        <div>
+            Date : {{dateString createdDt}}
+            <button onclick="deleteComment('{{idx}}')">Delete</button>
+        </div>
+    </div>
+    <div>
+        <pre>{{comment}}</pre>
+    </div>
+    {{/each}}
+</section>
+{{/with}}
+<footer>
+    <div>
+        <a href="/">List</a>
+    </div>
+</footer>
+<script src="../js/detail.js"></script>

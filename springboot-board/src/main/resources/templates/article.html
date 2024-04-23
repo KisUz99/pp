@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">Spring Blog</h1>
+    <h4 class="mb-3">Welcome to Blog :)</h4>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <article>
+                <input type="hidden" id="article-id" th:value="${article.id}">
+                <header class="mb-4">
+                    <h1 class="fw-bolder mb-1" th:text="${article.title}"></h1>
+                    <div class="text-muted fst-italic mb-2" th:text="|Posted on ${#temporals.format(article.createdAt, 'yyyy-MM-dd HH:mm')} By ${article.author}|"></div>
+                </header>
+                <section>
+                    <p class="fs-5 mb-4" th:text="${article.content}"></p>
+                </section>
+                <button type="button" th:onclick="|location.href='@{/new-article?id={articleId}(articleId=${article.id})}'|"
+                        class="btn btn-primary btn-sm">Modify</button>
+                <button type="button" id="delete-btn" class="btn btn-danger btn-sm">Delete</button>
+                <button type="button" onClick="location.href='/articles'" class="btn btn-secondary btn-sm">Back</button>
+            </article>
+        </div>
+    </div>
+</div>
+
+<script src="/js/article.js"></script>
+</body>
+</html>

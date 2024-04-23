@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Nest Chat</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <h2>Simple Nest Chat</h2>
+    <div>
+      <h2>Notice</h2>
+      <div id="notice"></div>
+    </div>
+    <div class="nameContainer">
+      <span id="nameSpan">Nickname: none</span>
+      <button onClick="setNickname()">Change</button>
+    </div>
+    <div id="listDiv">
+        <h2>Room List</h2>
+        <div class="roomsDiv">
+          <ul id="rooms"></ul>
+        </div>
+        <button onclick="createRoom()">Create Room</button>
+    </div>
+    <div id="chatDiv" class="hide">
+      <div>
+        <h2>Chat</h2>
+        <p>Current Room: <span id="currentRoom">none</span></p>
+        <div id="chat"></div>
+      </div>
+      <div>
+        <input type="text" id="message" placeholder="type message" />
+        <button onclick="sendMessage()">Submit</button>
+        <button onclick="leaveRoom()">Leave Room</button>
+      </div>
+    </div>
+  </body>
+  <script src="https://code.jquery.com/jquery-3.6.1.slim.js"></script>
+  <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+  <script src="http://localhost:4000/script.js"></script>
+</html>

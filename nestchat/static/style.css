@@ -1,0 +1,70 @@
+
+      html {
+        background-color: #444444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      html, input, textarea {
+        font-family: "Noto Sans KR", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 300; 
+        font-style: normal;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: white;
+        border-radius: 5px;
+        width: 80%;
+        height: 90%;
+        padding: 20px;
+      }
+
+      body * {
+        background-color: white;
+      }
+
+      button {
+        border-radius: 5px;
+      }
+
+      #notice {
+        border: 1px solid #444444;
+        overflow: auto;
+        width: 300px;
+        height: 100px;
+      }
+
+      #chat {
+        border: 1px solid #444444;
+        overflow: auto;
+        width: 300px;
+        height: 400px;
+      }
+
+      .hide {
+        display: none;
+      }
+
+      #chatDiv, #listDiv {
+        margin-top: 20px;
+        width: 302px;
+      }
+      
+      #listDiv {
+        align-items: left;
+      }
+
+      .roomsDiv {
+        overflow: auto;
+        border: 1px solid #444444;
+        width: 300px;
+        height: 100px;
+      }

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+<div class="p-5 mb-5 text-center</> bg-light">
+    <h1 class="mb-3">Spring Blog</h1>
+    <h4 class="mb-3">Welcome to Blog :)</h4>
+</div>
+
+<div class="container">
+    <button type="button" id="create-btn" th:onclick="|location.href='@{/new-article}'|" class="btn btn-secondary btn-sm mb-3">Write</button>
+
+    <div class="row-6" th:each="item : ${articles}">
+        <div class="card">
+            <div class="card-header" th:text="${item.id}">
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.title}"></h5>
+                <p class="card-text" th:text="${item.content}"></p>
+                <button id="view-btn" th:data-id="${item.id}" class="btn btn-primary">Detail</button>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <button type="button" class="btn btn-secondary" onclick="location.href='/logout'">Logout</button>
+</div>
+<script src="/js/token.js"></script>
+<script src="/js/article.js"></script>
+</body>
+</html>

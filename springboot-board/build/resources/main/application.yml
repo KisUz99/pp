@@ -1,0 +1,34 @@
+spring:
+  jpa:
+    # 전송 확인
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+    #테이블 생성 후에 data.sql 실행
+    defer-datasource-initialization: true
+
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+
+  h2:
+    console:
+      enabled: true
+
+  sql:
+    init:
+      encoding: UTF-8
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 583531953738-0c6vg0k8go1ed75ahrlhsr4pf8hei1ne.apps.googleusercontent.com
+            client-secret: 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
+
+jwt:
+  issuer: true7260@gmail.com
+  secret_key: study-springboot

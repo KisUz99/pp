@@ -1,0 +1,35 @@
+<h1>[{{title}}] Post {{#if (eq mode "create")}}작성{{else}}수정{{/if}}</h1>
+
+<div>
+    <form {{#if (eq mode "create")}} action="/write" 
+        {{else}} action="/modify" {{/if}} method="post" name="boardForm"
+        {{#if (eq mode "modify")}}data-mode="modify"{{else}}data-mode="write"
+        {{/if}}>
+        {{#if (eq mode "modify")}}
+        <input type="hidden" name="id" value="{{post._id}}">
+        {{/if}}
+        <div>
+            <label>Title</label>
+            <input type="text" name="title" placeholder="Please Input Title" 
+            value="{{post.title}}">
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" name="writer" placeholder="Please Input Name" value="{{post.writer}}">
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Please Input Password" value="">
+        </div>
+        <div>
+            <label>Content</label><br>
+            <textarea placeholder="Content" name="content" cols="50" rows="10">{{post.content}}</textarea>
+            <br>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="location.href='/'">Cancle</button>
+        </div>
+    </form>
+</div>
+<script src="../js/write.js"></script>

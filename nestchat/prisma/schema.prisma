@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model test {
+  id       Int    @id @default(autoincrement())
+  username String
+  password String
+}
+
+model User {
+  uid       Int      @id @default(autoincrement())
+  id        String   @unique
+  user_name String   @unique
+  friend_id String?
+  block_id  String?
+  email     String
+  user_pwd  String
+  user_date DateTime @default(now())
+}
+
+model room {
+  rid       Int    @id @default(autoincrement())
+  room_name String @unique
+
+  room_member_id Int
+  type           String
+  room_pwd       String
+  room_date      DateTime @default(now())
+}
+
+model user_chat {
+  ucid       Int      @id @default(autoincrement())
+  sd_uid     Int
+  rcv_uid    Int
+  uc_msg     String
+  uc_sd_date DateTime @default(now())
+  uc_ur      String
+}
+
+model room_chat {
+  pid        Int
+  rcid       Int      @id @default(autoincrement())
+  sd_uid     Int
+  rc_msg     String
+  rc_sd_date DateTime @default(now())
+  rc_ur      String
+}
+
+model chat_history {
+  ch_id     Int    @id @default(autoincrement())
+  puid      Int
+  chat_type String
+  chat_id   Int
+}
